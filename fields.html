@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Simple Form</title>
+</head>
+<body>
+<h2>Registration Form</h2>
+<form onsubmit="return validate()">
+Name:<br>
+<input type="text" id="name"><br><br>
+Email:<br>
+<input type="text" id="email"><br><br>
+Password:<br>
+<input type="password" id="password"><br><br>
+Phone Number:<br>
+<input type="text" id="phone"><br><br>
+Date of Birth:<br>
+<input type="date" id="dob"><br><br>
+<input type="submit" value="Submit">
+</form>
+<script>
+function validate() {
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+let phone = document.getElementById("phone").value;
+if (!/^[A-Za-z]{3,}$/.test(name)) {
+alert("Invalid Name");
+return false;
+}
+if (!/^[^ ]+@[^ ]+\.[^ ]+$/.test(email)) {
+alert("Invalid Email");
+return false;
+}
+
+if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(password)) {
+alert("Weak Password");
+return false;
+}
+
+if (!/^\d{10}$/.test(phone)) {
+alert("Invalid Phone Number");
+return false;
+}
+
+alert("Form Submitted Successfully");
+return true;
+}
+</script>
+
+</body>
+</html>
